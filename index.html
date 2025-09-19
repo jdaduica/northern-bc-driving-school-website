@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -29,5 +29,657 @@
   <footer>
     <p>&copy; 2025 Northern BC Driving School</p>
   </footer>
+</body>
+</html> -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Northern BC Driving School - Learn to Drive Safely</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #e53e3e 0%, #c53030 100%);
+            color: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 1.8rem;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: #333;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Main Content */
+        .page {
+            display: none;
+            min-height: 80vh;
+            padding: 2rem 0;
+        }
+
+        .page.active {
+            display: block;
+        }
+
+        /* Home Page */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23f7f7f7" width="1200" height="600"/><polygon fill="%23e53e3e" points="0,600 400,400 800,500 1200,300 1200,600"/></svg>');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 4rem 0;
+            margin-bottom: 3rem;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background: #e53e3e;
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background 0.3s ease;
+            box-shadow: 0 4px 15px rgba(229, 62, 62, 0.3);
+        }
+
+        .cta-btn:hover {
+            background: #c53030;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(229, 62, 62, 0.4);
+        }
+
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .service-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-icon {
+            background: #e53e3e;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 1.5rem;
+        }
+
+        /* Pricing Page */
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .price-card {
+            background: white;
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            position: relative;
+            transition: transform 0.3s ease;
+        }
+
+        .price-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .price-card.featured {
+            border: 3px solid #e53e3e;
+            transform: scale(1.05);
+        }
+
+        .price-card h3 {
+            color: #e53e3e;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .price {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 1rem;
+        }
+
+        .price-features {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+
+        .price-features li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        /* Contact Page */
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin: 2rem 0;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #e53e3e;
+        }
+
+        .contact-info {
+            background: #333;
+            color: white;
+            padding: 2rem;
+            border-radius: 10px;
+        }
+
+        .contact-info h3 {
+            color: #e53e3e;
+            margin-bottom: 1rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding: 0.5rem 0;
+        }
+
+        .contact-icon {
+            background: #e53e3e;
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background: #c53030;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                padding: 1rem;
+            }
+
+            .nav-links.active {
+                display: flex;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+            }
+
+            .contact-content {
+                grid-template-columns: 1fr;
+            }
+
+            .services {
+                grid-template-columns: 1fr;
+            }
+
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .price-card.featured {
+                transform: none;
+            }
+        }
+
+        .section-title {
+            text-align: center;
+            color: #333;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #666;
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo">
+                <span>🚗 Northern BC Driving School</span>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#" class="nav-link active" data-page="home">Home</a></li>
+                <li><a href="#" class="nav-link" data-page="pricing">Pricing</a></li>
+                <li><a href="#" class="nav-link" data-page="contact">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Home Page -->
+        <div id="home" class="page active">
+            <section class="hero">
+                <div class="container">
+                    <h1>Learn to Drive with Confidence</h1>
+                    <p>Northern BC's premier driving school offering professional instruction for new drivers. Safe, reliable, and experienced instruction in Prince George and surrounding areas.</p>
+                    <a href="#" class="cta-btn" data-page="contact">Get Started Today</a>
+                </div>
+            </section>
+
+            <section class="container">
+                <h2 class="section-title">About Northern BC Driving School</h2>
+                <p class="section-subtitle">We're dedicated to creating safe, confident drivers through comprehensive training programs tailored to Northern BC's unique driving conditions.</p>
+                
+                <div class="services">
+                    <div class="service-card">
+                        <div class="service-icon">🎓</div>
+                        <h3>Beginner Lessons</h3>
+                        <p>Complete beginner courses covering all the basics of safe driving, road rules, and vehicle operation. Perfect for first-time drivers.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">❄️</div>
+                        <h3>Winter Driving</h3>
+                        <p>Specialized training for Northern BC's challenging winter conditions. Learn to drive safely on snow and ice.</p>
+                    </div>
+                    <div class="service-card">
+                        <div class="service-icon">✅</div>
+                        <h3>Road Test Prep</h3>
+                        <p>Focused preparation for your road test with mock exams and practice sessions to ensure you pass with confidence.</p>
+                    </div>
+                </div>
+
+                <div style="background: #f8f8f8; padding: 3rem 2rem; border-radius: 10px; margin: 3rem 0; text-align: center;">
+                    <h3 style="color: #e53e3e; margin-bottom: 1rem;">Why Choose Us?</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-top: 2rem;">
+                        <div>
+                            <strong>Experienced Instructors</strong>
+                            <p>Certified professionals with years of teaching experience</p>
+                        </div>
+                        <div>
+                            <strong>Local Knowledge</strong>
+                            <p>Familiar with Northern BC roads and driving conditions</p>
+                        </div>
+                        <div>
+                            <strong>Flexible Scheduling</strong>
+                            <p>Lessons that fit your schedule, including evenings and weekends</p>
+                        </div>
+                        <div>
+                            <strong>High Pass Rate</strong>
+                            <p>Our students consistently achieve excellent results on their road tests</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Pricing Page -->
+        <div id="pricing" class="page">
+            <section class="container">
+                <h2 class="section-title">Driving Lesson Pricing</h2>
+                <p class="section-subtitle">Choose the package that best fits your needs and budget. All lessons include pickup and drop-off service within Prince George.</p>
+
+                <div class="pricing-grid">
+                    <div class="price-card">
+                        <h3>Single Lesson</h3>
+                        <div class="price">$65</div>
+                        <ul class="price-features">
+                            <li>60-minute lesson</li>
+                            <li>Pickup & drop-off included</li>
+                            <li>Personalized instruction</li>
+                            <li>Progress tracking</li>
+                            <li>Flexible scheduling</li>
+                        </ul>
+                        <a href="#" class="cta-btn" data-page="contact">Book Now</a>
+                    </div>
+
+                    <div class="price-card featured">
+                        <h3>5-Lesson Package</h3>
+                        <div class="price">$300</div>
+                        <p style="color: #e53e3e; font-weight: bold; margin-bottom: 1rem;">Save $25!</p>
+                        <ul class="price-features">
+                            <li>Five 60-minute lessons</li>
+                            <li>Pickup & drop-off included</li>
+                            <li>Structured learning program</li>
+                            <li>Progress assessments</li>
+                            <li>Road test preparation</li>
+                        </ul>
+                        <a href="#" class="cta-btn" data-page="contact">Most Popular</a>
+                    </div>
+
+                    <div class="price-card">
+                        <h3>10-Lesson Package</h3>
+                        <div class="price">$580</div>
+                        <p style="color: #e53e3e; font-weight: bold; margin-bottom: 1rem;">Save $70!</p>
+                        <ul class="price-features">
+                            <li>Ten 60-minute lessons</li>
+                            <li>Pickup & drop-off included</li>
+                            <li>Complete driving course</li>
+                            <li>Mock road test included</li>
+                            <li>Winter driving session</li>
+                            <li>Road test booking assistance</li>
+                        </ul>
+                        <a href="#" class="cta-btn" data-page="contact">Best Value</a>
+                    </div>
+                </div>
+
+                <div style="background: #333; color: white; padding: 2rem; border-radius: 10px; margin: 3rem 0; text-align: center;">
+                    <h3 style="color: #e53e3e; margin-bottom: 1rem;">Special Services</h3>
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 2rem; margin-top: 2rem;">
+                        <div>
+                            <strong>Road Test Service - $45</strong>
+                            <p>Use our vehicle for your road test with a pre-test warm-up lesson</p>
+                        </div>
+                        <div>
+                            <strong>Refresher Course - $55/hour</strong>
+                            <p>For licensed drivers who need to brush up on their skills</p>
+                        </div>
+                        <div>
+                            <strong>Highway Driving - $70/hour</strong>
+                            <p>Specialized highway and merging instruction</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- Contact Page -->
+        <div id="contact" class="page">
+            <section class="container">
+                <h2 class="section-title">Contact Us</h2>
+                <p class="section-subtitle">Ready to start your driving journey? Get in touch with us to schedule your first lesson or ask any questions.</p>
+
+                <div class="contact-content">
+                    <div class="contact-form">
+                        <h3 style="color: #e53e3e; margin-bottom: 1.5rem;">Send us a Message</h3>
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <label for="name">Full Name *</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email Address *</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone Number *</label>
+                                <input type="tel" id="phone" name="phone" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="service">Service Interested In</label>
+                                <select id="service" name="service" style="width: 100%; padding: 0.8rem; border: 2px solid #ddd; border-radius: 5px;">
+                                    <option value="">Select a service</option>
+                                    <option value="beginner">Beginner Lessons</option>
+                                    <option value="package">Lesson Package</option>
+                                    <option value="road-test">Road Test Preparation</option>
+                                    <option value="refresher">Refresher Course</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" rows="5" placeholder="Tell us about your driving experience and what you'd like to learn..."></textarea>
+                            </div>
+                            <button type="submit" class="cta-btn" style="width: 100%;">Send Message</button>
+                        </form>
+                    </div>
+
+                    <div class="contact-info">
+                        <h3>Get in Touch</h3>
+                        <div class="contact-item">
+                            <div class="contact-icon">📞</div>
+                            <div>
+                                <strong>Phone</strong><br>
+                                (250) 555-0123
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">📧</div>
+                            <div>
+                                <strong>Email</strong><br>
+                                info@northernbcdrivingschool.ca
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">📍</div>
+                            <div>
+                                <strong>Service Area</strong><br>
+                                Prince George & Surrounding Areas
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">🕒</div>
+                            <div>
+                                <strong>Hours</strong><br>
+                                Mon-Fri: 8:00 AM - 7:00 PM<br>
+                                Sat-Sun: 9:00 AM - 5:00 PM
+                            </div>
+                        </div>
+
+                        <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid #555;">
+                            <h4 style="color: #e53e3e; margin-bottom: 1rem;">Quick Response Promise</h4>
+                            <p>We typically respond to inquiries within 2 hours during business hours. For urgent requests, please call us directly.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Northern BC Driving School. All rights reserved. | Licensed Driving Instructor | Prince George, BC</p>
+        </div>
+    </footer>
+
+    <script>
+        // Navigation functionality
+        const navLinks = document.querySelectorAll('.nav-link');
+        const pages = document.querySelectorAll('.page');
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const navLinksContainer = document.getElementById('navLinks');
+
+        // Page switching
+        navLinks.forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetPage = link.getAttribute('data-page');
+                
+                // Update active nav link
+                navLinks.forEach(l => l.classList.remove('active'));
+                link.classList.add('active');
+                
+                // Show target page
+                pages.forEach(page => page.classList.remove('active'));
+                document.getElementById(targetPage).classList.add('active');
+                
+                // Close mobile menu if open
+                navLinksContainer.classList.remove('active');
+            });
+        });
+
+        // CTA button functionality
+        document.querySelectorAll('.cta-btn[data-page]').forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                const targetPage = btn.getAttribute('data-page');
+                
+                // Update active nav link
+                navLinks.forEach(l => l.classList.remove('active'));
+                document.querySelector(`[data-page="${targetPage}"]`).classList.add('active');
+                
+                // Show target page
+                pages.forEach(page => page.classList.remove('active'));
+                document.getElementById(targetPage).classList.add('active');
+            });
+        });
+
+        // Mobile menu toggle
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinksContainer.classList.toggle('active');
+        });
+
+        // Contact form submission
+        document.getElementById('contactForm').addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Thank you for your message! We will contact you within 2 hours during business hours.');
+        });
+
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('nav')) {
+                navLinksContainer.classList.remove('active');
+            }
+        });
+    </script>
 </body>
 </html>
