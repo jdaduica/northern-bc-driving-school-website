@@ -1,42 +1,13 @@
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Northern BC Driving School</title>
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <header>
-    <h1>Northern BC Driving School</h1>
-    <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="services.html">Services</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
-
-  <main>
-    <section>
-      <h2>Welcome!</h2>
-      <p>We provide professional driving instruction in Northern BC. Learn safe driving skills for life.</p>
-    </section>
-  </main>
-
-  <footer>
-    <p>&copy; 2025 Northern BC Driving School</p>
-  </footer>
-</body>
-</html> -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Northern BC Driving School - Learn to Drive Safely</title>
+    <link rel="icon" type="image/x-icon" href="favicon/favicon.ico">
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
     <style>
         * {
             margin: 0;
@@ -549,7 +520,7 @@
                 <div class="contact-content">
                     <div class="contact-form">
                         <h3 style="color: #e53e3e; margin-bottom: 1.5rem;">Send us a Message</h3>
-                        <form id="contactForm">
+                        <form id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
                             <div class="form-group">
                                 <label for="name">Full Name *</label>
                                 <input type="text" id="name" name="name" required>
@@ -678,8 +649,18 @@
 
         // Contact form submission
         document.getElementById('contactForm').addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert('Thank you for your message! We will contact you within 2 hours during business hours.');
+            // Form will be handled by Formspree - no need to prevent default
+            // Show a quick confirmation message
+            const submitBtn = e.target.querySelector('button[type="submit"]');
+            const originalText = submitBtn.textContent;
+            submitBtn.textContent = 'Sending...';
+            submitBtn.disabled = true;
+            
+            // Re-enable button after 3 seconds (in case of issues)
+            setTimeout(() => {
+                submitBtn.textContent = originalText;
+                submitBtn.disabled = false;
+            }, 3000);
         });
 
         // Close mobile menu when clicking outside
