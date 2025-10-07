@@ -43,7 +43,11 @@
             position: relative;
         }
 
-        .logo {
+                    .reviews-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .logo {
             display: flex;
             align-items: center;
             font-size: 1.8rem;
@@ -366,6 +370,101 @@
             margin-left: auto;
             margin-right: auto;
         }
+
+        /* Reviews Page */
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+
+        .review-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .review-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .review-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .reviewer-avatar {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            background: #e53e3e;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-right: 1rem;
+        }
+
+        .reviewer-info h4 {
+            margin: 0;
+            color: #333;
+            font-size: 1.1rem;
+        }
+
+        .review-stars {
+            color: #ffa500;
+            font-size: 1.2rem;
+            margin: 0.5rem 0;
+        }
+
+        .review-text {
+            color: #555;
+            line-height: 1.8;
+            font-style: italic;
+            margin: 1rem 0;
+        }
+
+        .review-date {
+            color: #999;
+            font-size: 0.9rem;
+        }
+
+        .stats-section {
+            background: linear-gradient(135deg, #e53e3e 0%, #c53030 100%);
+            color: white;
+            padding: 3rem 2rem;
+            border-radius: 10px;
+            margin: 3rem 0;
+            text-align: center;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .stat-item {
+            padding: 1rem;
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1.1rem;
+        }
     </style>
 </head>
 <body>
@@ -378,6 +477,7 @@
             <ul class="nav-links" id="navLinks">
                 <li><a href="#" class="nav-link active" data-page="home">Home</a></li>
                 <li><a href="#" class="nav-link" data-page="pricing">Pricing</a></li>
+                <li><a href="#" class="nav-link" data-page="reviews">Reviews</a></li>
                 <li><a href="#" class="nav-link" data-page="contact">Contact</a></li>
             </ul>
             <button class="mobile-menu-btn" id="mobileMenuBtn">☰</button>
@@ -538,6 +638,113 @@
             </section>
         </div>
 
+        <!-- Reviews Page -->
+        <div id="reviews" class="page">
+            <section class="container">
+                <h2 class="section-title">Student Reviews</h2>
+                <p class="section-subtitle">See what our students have to say about their experience with Northern BC Driving School</p>
+
+
+                <div class="stats-section">
+                    <h3 style="font-size: 2rem; margin-bottom: 1rem;">Our Track Record</h3>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <span class="stat-number">400+</span>
+                            <span class="stat-label">Students Trained</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">100+</span>
+                            <span class="stat-label">5-Star Reviews</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-number">5.0★</span>
+                            <span class="stat-label">Perfect Rating</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="reviews-grid">
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div class="reviewer-avatar">D</div>
+                            <div class="reviewer-info">
+                                <h4>Diana L.</h4>
+                                <div class="review-stars">★★★★★</div>
+                            </div>
+                        </div>
+                        <p class="review-text">"I had a wonderful experience with Northern BC Driving School. From the start, my instructor Jasbir was very patient and kind, and helped me throughout the lessons perfectly. The extra classes that we had to pop in prior to my test helped me to clear in the first go. Thanks to Jasbir’s timely discernment. I would definitely recommend Northern BC Driving, especially to newbies."</p>
+                        <p class="review-date">September 2024</p>
+                    </div>
+
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div class="reviewer-avatar">G</div>
+                            <div class="reviewer-info">
+                                <h4>Grace P.</h4>
+                                <div class="review-stars">★★★★★</div>
+                            </div>
+                        </div>
+                        <p class="review-text">"To Nothern BC Driving School. Thank you Lord and Thank you so much to Mrs Jasbir the Driving Instructor. I Pass my Roadtest. I am so Happy I got my driving License. She is the Best instructor in my Life , more Patience, Understanding about my situation, Very Clear to teach and Advice. Guy's i reccomend Mrs Jasbir."</p>
+                        <p class="review-date">October 2024</p>
+                    </div>
+
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div class="reviewer-avatar">E</div>
+                            <div class="reviewer-info">
+                                <h4>Emily A.</h4>
+                                <div class="review-stars">★★★★★</div>
+                            </div>
+                        </div>
+                        <p class="review-text">"Jazz was very accommodating and was able to give me lessons on short notice as I came from out of town to take my class 7 license. She was calm, professional, but also warm and reassuring. She pinpoints key issues and is very good at articulating how you can become a better driver. Her teaching style is direct and she helped keep me focused. I passed my test and feel the three lessons I took from Jazz were a game changer. I would recommend her to anyone!"</p>
+                        <p class="review-date">August 2022</p>
+                    </div>
+
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div class="reviewer-avatar">Z</div>
+                            <div class="reviewer-info">
+                                <h4>Zehra Z.</h4>
+                                <div class="review-stars">★★★★★</div>
+                            </div>
+                        </div>
+                        <p class="review-text">"Jasbir is an amazing instructor, who makes sure to accomodate her students around the clock. Jasbir has been with me in this driving test journey, through and through, and I would'nt have achieved the good remarks if it wasn't for her. Thank you, Jasbir for your patience and understanding. Will miss those drives with you, and the laughter we shared together on the road."</p>
+                        <p class="review-date">January 2025</p>
+                    </div>
+
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div class="reviewer-avatar">L</div>
+                            <div class="reviewer-info">
+                                <h4>Laurie Z.</h4>
+                                <div class="review-stars">★★★★★</div>
+                            </div>
+                        </div>
+                        <p class="review-text">"I highly recommend Northern BC Driving School. And definitely instructor Jas. My son took a couple lessons from her. She was excellent! She was easy to book for a lesson, very friendly and supportive. She answered every question really putting him at ease with skill needed to feel more confident for the road test. He was very comfortable with her. I will be passing her info on to anyone looking for driving instruction. Thank you so much!"</p>
+                        <p class="review-date">June 2023</p>
+                    </div>
+
+                    <div class="review-card">
+                        <div class="review-header">
+                            <div class="reviewer-avatar">A</div>
+                            <div class="reviewer-info">
+                                <h4>Amaka O.</h4>
+                                <div class="review-stars">★★★★★</div>
+                            </div>
+                        </div>
+                        <p class="review-text">"This is a very good driving school. I passed in my first attempt. Jas is really a patient instructor. Five star is in order. I will recommend her to all."</p>
+                        <p class="review-date">January 2025</p>
+                    </div>
+                </div>
+
+                <div style="background: #f8f8f8; padding: 3rem 2rem; border-radius: 10px; margin: 3rem 0; text-align: center;">
+                    <h3 style="color: #e53e3e; margin-bottom: 1rem;">Ready to Start Your Journey?</h3>
+                    <p style="margin-bottom: 2rem; color: #666;">Join hundreds of satisfied students who learned to drive safely with Northern BC Driving School</p>
+                    <a href="#" class="cta-btn" data-page="contact">Book Your First Lesson</a>
+                </div>
+            </section>
+        </div>
+
         <!-- Contact Page -->
         <div id="contact" class="page">
             <section class="container">
@@ -602,14 +809,6 @@
                                 Prince George & Surrounding Areas
                             </div>
                         </div>
-                        <!-- <div class="contact-item">
-                            <div class="contact-icon">🕒</div>
-                            <div>
-                                <strong>Hours</strong><br>
-                                Mon-Fri: 8:00 AM - 7:00 PM<br>
-                                Sat-Sun: 9:00 AM - 5:00 PM
-                            </div>
-                        </div> -->
 
                         <div style="margin-top: 2rem; padding-top: 2rem; border-top: 1px solid #555;">
                             <h4 style="color: #e53e3e; margin-bottom: 1rem;">Quick Response Promise</h4>
@@ -699,3 +898,7 @@
     </script>
 </body>
 </html>
+
+
+
+
